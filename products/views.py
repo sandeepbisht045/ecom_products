@@ -18,8 +18,11 @@ from rest_framework.response import Response
 class AddProduct(APIView):
     def post(self,request,format=None):
         req=request.data
-        if not req["name"] or not req['details'] or not req['price'] or not req['image']:
-            return Response({"message":'fields cannot be empty','status':status.HTTP_400_BAD_REQUEST})
+        try:
+            if not req["name"] or not req['details'] or not req['price'] or not req['image']:
+                return Response({"message":'fields cannot be empty','status':status.HTTP_400_BAD_REQUEST})
+        except:
+            return Response({"message":'all fields are mandatory','status':status.HTTP_400_BAD_REQUEST})
 
         serializer=ProductSerializer(data=request.data)
         if serializer.is_valid():

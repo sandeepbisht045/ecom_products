@@ -1,0 +1,45 @@
+Postman Documentation URL: https://documenter.getpostman.com/view/18415419/UzQyqNr4
+
+Endpoints Explanation:
+# this is the base url: https://djangoproducts.pythonanywhere.com/
+
+ADD PRODUCT ENDPOINT:
+product/add/ : POST 
+body: name,price,details,image
+Response : status 201 or 400
+
+
+UPDATE PRODUCT ENDPOINT:
+product/update/ : PUT
+body: id,name,price,details,image
+Response : status 200 or 400
+
+
+FETCH PRODUCT ENDPOINT:
+    To fetch all products:
+        product/get/ : GET
+        Response : status 200 or 400
+
+    To fetch single product:
+        product/get : GET
+        parameter: id    i.e. product id
+        Response : status 200 or 400
+
+
+DELETE PRODUCT ENDPOINT:
+    To delete multiple products:
+        product/delete/ : DELETE
+        body:id
+        <!-- here id filed will have comma separated product ids to delete multiple products -->
+        Response : status 200 or 400 
+        <!-- also it returns invalid_product_ids if any in response body -->
+
+    To delete single product:
+        product/delete : DELETE
+        body: id
+        <!-- in id field there should be single product id to delete single product at a time -->
+        Response : status 200 or 400
+        <!-- also it returns invalid_product_id if any in response body -->
+
+
+
