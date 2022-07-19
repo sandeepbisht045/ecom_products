@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-f5cgkl)+3y-a^nd7ibhfyl9#vclk8$dq*7+m3o65*$g50%a^9c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'products',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -81,6 +83,9 @@ DATABASES = {
 }
 
 
+
+
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -123,3 +128,12 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    
+]
+
+STATIC_URL = '/static/'
+MEDIA_URL='/media/'
+MEDIA_ROOT=BASE_DIR/'media'
